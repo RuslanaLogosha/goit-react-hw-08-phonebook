@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import Container from './components/Container';
-import AppBar from './components/AppBar';
+import AppBar from 'components/Header/AppBar';
 import HomeView from './views/HomeView';
 import RegisterView from './views/RegisterView';
 import LoginView from './views/LoginView';
