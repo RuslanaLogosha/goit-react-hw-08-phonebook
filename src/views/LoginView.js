@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
+import FormContainer from '../components/FormComponents/FormContainer';
+import Form from '../components/FormComponents/Form';
+import Input from '../components/FormComponents/Input';
 
 const styles = {
   form: {
@@ -37,13 +40,13 @@ export default function LoginView() {
   };
 
   return (
-    <div>
+    <FormContainer>
       <h1>Страница логина</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <Form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
           Почта
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
@@ -53,7 +56,7 @@ export default function LoginView() {
 
         <label style={styles.label}>
           Пароль
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
@@ -62,7 +65,7 @@ export default function LoginView() {
         </label>
 
         <button type="submit">Войти</button>
-      </form>
-    </div>
+      </Form>
+    </FormContainer>
   );
 }

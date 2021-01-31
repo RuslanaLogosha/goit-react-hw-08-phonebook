@@ -1,7 +1,9 @@
-// import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 import { useForm } from 'react-hook-form';
+import FormContainer from '../components/FormComponents/FormContainer';
+import Form from '../components/FormComponents/Form';
+import Input from '../components/FormComponents/Input';
 
 const styles = {
   form: {
@@ -16,81 +18,38 @@ const styles = {
 
 export default function RegisterView() {
   const dispatch = useDispatch();
-  const authCredentials = useSelector(state => state.auth.user);
-
   const { register, handleSubmit } = useForm();
 
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case 'name':
-  //       return setName(value);
-  //     case 'email':
-  //       return setEmail(value);
-  //     case 'password':
-  //       return setPassword(value);
-  //     default:
-  //       return;
-  //   }
-  // };
-
-  const handleFormSubmit = ({ name, email, password }) => {
-    // e.preventDefault();
-    console.log(name);
-    console.log(authCredentials);
-    dispatch(authOperations.register(name, email, password));
-    // setName('');
-    // setEmail('');
-    // setPassword('');
+  const handleFormSubmit = data => {
+    dispatch(authOperations.register(data));
   };
 
   return (
-    <div>
+    <FormContainer>
       <h1>Страница регистрации</h1>
 
-      <form
+      <Form
         onSubmit={handleSubmit(handleFormSubmit)}
         style={styles.form}
         autoComplete="off"
       >
         <label style={styles.label}>
           Имя
-          <input
-            type="text"
-            name="name"
-            // value={name}
-            ref={register}
-            // onChange={handleChange}
-          />
+          <Input type="text" name="name" ref={register} />
         </label>
 
         <label style={styles.label}>
           Почта
-          <input
-            type="email"
-            name="email"
-            // value={email}
-            ref={register}
-            // onChange={handleChange}
-          />
+          <Input type="email" name="email" ref={register} />
         </label>
 
         <label style={styles.label}>
           Пароль
-          <input
-            type="password"
-            name="password"
-            // value={password}
-            ref={register}
-            // onChange={handleChange}
-          />
+          <Input type="password" name="password" ref={register} />
         </label>
 
         <button type="submit">Зарегистрироваться</button>
-      </form>
-    </div>
+      </Form>
+    </FormContainer>
   );
 }
