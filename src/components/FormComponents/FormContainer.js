@@ -11,11 +11,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const FormContainer = ({ children }) => {
+const FormContainer = ({ children, ...props }) => {
   const styles = useStyles();
 
   return (
-    <Container className={styles.root} component="main" maxWidth="xs">
+    <Container
+      className={styles.root}
+      component="main"
+      maxWidth="xs"
+      {...props}
+    >
       {children}
     </Container>
   );

@@ -8,10 +8,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Form = ({ children }) => {
+const Form = ({ children, ...props }) => {
   const styles = useStyles();
   return (
-    <form className={styles.root} noValidate>
+    <form className={styles.root} noValidate {...props}>
       {children}
     </form>
   );

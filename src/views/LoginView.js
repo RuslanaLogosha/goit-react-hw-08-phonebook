@@ -4,6 +4,7 @@ import { authOperations } from 'redux/auth';
 import FormContainer from '../components/FormComponents/FormContainer';
 import Form from '../components/FormComponents/Form';
 import Input from '../components/FormComponents/Input';
+import PrimaryButton from '../components/FormComponents/PrimaryButton';
 
 const styles = {
   form: {
@@ -64,7 +65,7 @@ export default function LoginView() {
           />
         </label>
 
-        <button type="submit">Войти</button>
+        <PrimaryButton type="submit">Войти</PrimaryButton>
       </Form>
     </FormContainer>
   );

@@ -4,16 +4,20 @@ import { useForm } from 'react-hook-form';
 import FormContainer from '../components/FormComponents/FormContainer';
 import Form from '../components/FormComponents/Form';
 import Input from '../components/FormComponents/Input';
+import PrimaryButton from '../components/FormComponents/PrimaryButton';
 
 const styles = {
   form: {
     width: 320,
   },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
+  // input: {
+  //   disply: 'flex',
+  // },
+  // label: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   marginBottom: 15,
+  // },
 };
 
 export default function RegisterView() {
@@ -21,6 +25,7 @@ export default function RegisterView() {
   const { register, handleSubmit } = useForm();
 
   const handleFormSubmit = data => {
+    console.log(data);
     dispatch(authOperations.register(data));
   };
 
@@ -33,22 +38,24 @@ export default function RegisterView() {
         style={styles.form}
         autoComplete="off"
       >
-        <label style={styles.label}>
-          Имя
-          <Input type="text" name="name" ref={register} />
-        </label>
+        <Input
+          // style={styles.input}
+          type="text"
+          name="name"
+          label="Name"
+          ref={register}
+        />
 
-        <label style={styles.label}>
-          Почта
-          <Input type="email" name="email" ref={register} />
-        </label>
+        <Input type="email" name="email" label="Email" ref={register} />
 
-        <label style={styles.label}>
-          Пароль
-          <Input type="password" name="password" ref={register} />
-        </label>
+        <Input
+          type="password"
+          name="password"
+          label="Password"
+          ref={register}
+        />
 
-        <button type="submit">Зарегистрироваться</button>
+        <PrimaryButton type="submit">Зарегистрироваться</PrimaryButton>
       </Form>
     </FormContainer>
   );
