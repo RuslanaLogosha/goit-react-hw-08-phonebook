@@ -8,6 +8,7 @@ const Input = forwardRef((props, ref) => {
       margin="normal"
       inputRef={ref}
       fullWidth
+      color="secondary"
       {...props}
     />
   );

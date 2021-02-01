@@ -1,22 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// import { Grid } from '@material-ui/core';
 
 const styles = {
   link: {
     display: 'inline-block',
     textDecoration: 'none',
     padding: 12,
-    fontWeight: 700,
-    color: '#2A363B',
+    fontWeight: 900,
+    fontSize: 18,
+    color: '#faa346',
   },
-  activeLink: {
-    color: '#2A363B',
-  },
+  // activeLink: {
+  //   color: '#732e4d',
+  // },
 };
 
-export default function AuthNav() {
+export default function AuthNavMUI() {
   return (
-    <div>
+    <>
       <NavLink
         to="/register"
         exact
@@ -25,6 +27,7 @@ export default function AuthNav() {
       >
         Регистрация
       </NavLink>
+  
       <NavLink
         to="/login"
         exact
@@ -33,6 +36,7 @@ export default function AuthNav() {
       >
         Логин
       </NavLink>
-    </div>
+     
+    </>
   );
 }

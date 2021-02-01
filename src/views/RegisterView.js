@@ -5,20 +5,7 @@ import FormContainer from '../components/FormComponents/FormContainer';
 import Form from '../components/FormComponents/Form';
 import Input from '../components/FormComponents/Input';
 import PrimaryButton from '../components/FormComponents/PrimaryButton';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  // input: {
-  //   disply: 'flex',
-  // },
-  // label: {
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  //   marginBottom: 15,
-  // },
-};
+import PageHeader from '../components/HeaderMUI/PageHeaderMUI';
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -31,20 +18,10 @@ export default function RegisterView() {
 
   return (
     <FormContainer>
-      <h1>Страница регистрации</h1>
+      <PageHeader title="Страница регистрации" />
 
-      <Form
-        onSubmit={handleSubmit(handleFormSubmit)}
-        style={styles.form}
-        autoComplete="off"
-      >
-        <Input
-          // style={styles.input}
-          type="text"
-          name="name"
-          label="Name"
-          ref={register}
-        />
+      <Form onSubmit={handleSubmit(handleFormSubmit)} autoComplete="off">
+        <Input type="text" name="name" label="Name" ref={register} />
 
         <Input type="email" name="email" label="Email" ref={register} />
 

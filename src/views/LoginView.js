@@ -5,17 +5,7 @@ import FormContainer from '../components/FormComponents/FormContainer';
 import Form from '../components/FormComponents/Form';
 import Input from '../components/FormComponents/Input';
 import PrimaryButton from '../components/FormComponents/PrimaryButton';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import PageHeader from '../components/HeaderMUI/PageHeaderMUI';
 
 export default function LoginView() {
   const dispatch = useDispatch();
@@ -42,29 +32,24 @@ export default function LoginView() {
 
   return (
     <FormContainer>
-      <h1>Страница логина</h1>
+      <PageHeader title="Страница логина" />
 
-      <Form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Почта
-          <Input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <Input
+          type="email"
+          name="email"
+          value={email}
+          label="Email"
+          onChange={handleChange}
+        />
 
-        <label style={styles.label}>
-          Пароль
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
+        <Input
+          type="password"
+          name="password"
+          value={password}
+          label="Password"
+          onChange={handleChange}
+        />
         <PrimaryButton type="submit">Войти</PrimaryButton>
       </Form>
     </FormContainer>
