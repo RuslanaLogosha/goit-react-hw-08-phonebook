@@ -81,7 +81,7 @@ const fetchCurrentUser = createAsyncThunk(
 
     if (persistedToken === null) {
       console.log('Токена нет, уходим из fetchCurrentUser');
-      return thunkAPI.rejectWithValue();
+      return thunkAPI.rejectWithValue('need to log in');
     }
 
     token.set(persistedToken);
