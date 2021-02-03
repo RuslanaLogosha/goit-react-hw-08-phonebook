@@ -2,16 +2,12 @@ import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Suspense, lazy } from 'react';
-import axios from 'axios';
 import Container from './components/Container';
-// import HomeView from './views/HomeView';
-// import RegisterView from './views/RegisterView';
-// import LoginView from './views/LoginView';
-// import ContactsView from './views/ContactsView';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { authOperations, authSelectors } from './redux/auth';
 import HeaderMUI from './components/HeaderMUI/HeaderMUI';
+import BottomAppBar from './components/BottomAppBar';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
 const HomeView = lazy(() => import('./views/HomeView'));
@@ -29,7 +25,6 @@ const theme = createMuiTheme({
     },
   },
 });
-axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -68,6 +63,7 @@ export default function App() {
               />
             </Suspense>
           </Switch>
+          <BottomAppBar />
         </ThemeProvider>
       )}
     </Container>

@@ -1,13 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import s from './contactList.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { contactsOperations } from 'redux/contacts';
 import { contactsSelectors } from 'redux/contacts';
 import { useEffect } from 'react';
-
-axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 export default function ContactList() {
   const dispatch = useDispatch();

@@ -10,9 +10,6 @@ import {
   deleteContactSuccess,
   deleteContactError,
 } from './contacts-actions';
-// import { createAsyncThunk } from '@reduxjs/toolkit';
-
-// axios.defaults.baseURL = 'http://localhost:4040';
 
 const fetchContacts = () => async dispatch => {
   dispatch(fetchContactsRequest());
@@ -23,11 +20,6 @@ const fetchContacts = () => async dispatch => {
     dispatch(fetchContactsError(error));
   }
 };
-
-// const fetchContacts = createAsyncThunk('contacts/fetchContacts', async () => {
-//   const { data } = await axios.get('/contacts');
-//   return data;
-// });
 
 const addContact = (name, number) => async dispatch => {
   const contact = {
@@ -45,18 +37,6 @@ const addContact = (name, number) => async dispatch => {
   }
 };
 
-// const addContact = createAsyncThunk(
-//   ‘contacts/addContact’,
-//   async (name, number) => {
-//     const contact = {
-//       name,
-//       number,
-//     };
-//     const { data } = await axios.post(‘/contacts’, contact);
-//     return data;
-//   },
-// );
-
 const deleteContact = id => async dispatch => {
   dispatch(deleteContactRequest());
   try {
@@ -67,13 +47,10 @@ const deleteContact = id => async dispatch => {
   }
 };
 
-// const deleteContact = createAsyncThunk(‘contacts/deleteContact’, async id => {
-//   await axios.delete(`/contacts/${id}`);
-// });
-
 const contactsOperations = {
   fetchContacts,
   addContact,
   deleteContact,
 };
+
 export default contactsOperations;
