@@ -5,8 +5,8 @@
   margin-right: auto;
   padding-top: 15px;
   padding-bottom: 15px;
-  width: 550px;
-  border-color: #11a579;
+  max-width: 550px;
+  border-color: #0c2b22;
   border-radius: 20%;
   border-width: 20px;
   margin-bottom: 700px;
@@ -15,7 +15,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 9px;
-  width: 300px;
+  max-width: 300px;
   text-align: center;
   color: #f2f2f2;
   background: #db7129;

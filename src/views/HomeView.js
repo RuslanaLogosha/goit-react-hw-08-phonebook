@@ -10,6 +10,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: '700px',
   },
 };
 
@@ -48,7 +49,7 @@ const HomeView = () => {
       <div>
         <img
           src={
-            'https://pixabay.com/get/g9c56a7b14fc19a126b624189f44b41186da1741329488d6a73c4f2f9ffab61800948ef9dc46726327a8af4c86be0c9005697c7ac3e756eb63e1294c584e9d7c0_1280.jpg'
+            'https://pixabay.com/get/g8eb094b9675b189f599fcbf8e586c30a9353781b4896f7e52f49318c74607fdf2d5d5d725336a8fac126b7f89ac1ec0ca4eb1045705cc54e11eaae2d738820d6_1280.jpg'
           }
           alt={'old phone'}
         />

@@ -11,9 +11,6 @@ const styles = {
     fontSize: 18,
     color: '#faa346',
   },
-  // activeLink: {
-  //   color: '#732e4d',
-  // },
 };
 
 export default function AuthNavMUI() {
@@ -27,7 +24,7 @@ export default function AuthNavMUI() {
       >
         Регистрация
       </NavLink>
-  
+
       <NavLink
         to="/login"
         exact
@@ -36,7 +33,6 @@ export default function AuthNavMUI() {
       >
         Логин
       </NavLink>
-     
     </>
   );
 }
