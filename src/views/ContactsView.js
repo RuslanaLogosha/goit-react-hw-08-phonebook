@@ -8,6 +8,7 @@ export default function ContactsView() {
     <div className={s.container}>
       <h1 className={s.main_header}>Phonebook</h1>
       <ContactForm />
+
       <h2 className={s.contacts_header}>Contacts</h2>
       <Filter />
       <ContactList />

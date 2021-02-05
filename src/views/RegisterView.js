@@ -12,7 +12,6 @@ export default function RegisterView() {
   const { register, handleSubmit } = useForm();
 
   const handleFormSubmit = data => {
-    console.log(data);
     dispatch(authOperations.register(data));
   };
 

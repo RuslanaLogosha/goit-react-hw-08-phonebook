@@ -5,8 +5,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { contactsOperations } from 'redux/contacts';
 import { contactsSelectors } from 'redux/contacts';
 import { useEffect } from 'react';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    margin: theme.spacing(1, 0, 1),
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+  },
+}));
 
 export default function ContactList() {
+  const styles = useStyles();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,16 +33,16 @@ export default function ContactList() {
   return (
     <ul className={s.list}>
       {contacts.map(({ id, name, number }) => (
-        <li className={s.listItem} key={id}>
+        <li key={id}>
           <span className={s.listItemText}>{name}:</span>
           <span className={s.listItemText}>{number}</span>
-          <button
-            className={s.button}
+          <Button
+            className={styles.root}
             type="button"
             onClick={() => onDeleteContact(id)}
           >
             Delete
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

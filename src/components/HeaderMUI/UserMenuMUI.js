@@ -34,7 +34,7 @@ export default function UserMenuMUI() {
       <Button
         type="button"
         style={styles.button}
-        endIcon={<PowerSettingsNewIcon fontSize="medium" />}
+        endIcon={<PowerSettingsNewIcon fontSize="small" />}
         onClick={() => dispatch(authOperations.logOut())}
       >
         <span>Выйти</span>
