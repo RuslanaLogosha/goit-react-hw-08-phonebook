@@ -7,6 +7,7 @@ import { contactsSelectors } from 'redux/contacts';
 import { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,6 +38,7 @@ export default function ContactList() {
           <span className={s.listItemText}>{name}:</span>
           <span className={s.listItemText}>{number}</span>
           <Button
+            startIcon={<DeleteIcon fontSize="small" color="white" />}
             className={styles.root}
             type="button"
             onClick={() => onDeleteContact(id)}

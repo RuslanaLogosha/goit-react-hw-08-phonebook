@@ -1,7 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import phone1 from './images/phone1.jpg';
+import phone2 from './images/phone2.jpg';
+import phone3 from './images/phone3.jpg';
+import Confetti from 'react-confetti';
 
 const styles = {
   container: {
@@ -15,6 +21,8 @@ const styles = {
 };
 
 const HomeView = () => {
+  const loggedIn = useSelector(authSelectors.getIsLoggedIn);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -29,32 +37,27 @@ const HomeView = () => {
     adaptiveHeight: true,
   };
   return (
-    <Slider {...settings}>
-      <div className={styles.container}>
-        <img
-          src={
-            'https://pixabay.com/get/g276bc87b570842c9bf67f4a2d891819fad2aae99cff0973364eb0448734e4fdbc1b55a3bfe4589900c5bf7b8111fd225b61bb2feffb50db2b1bae161b1dc71d5_1280.jpg'
-          }
-          alt={'black old phone'}
+    <>
+      {loggedIn && (
+        <Confetti
+          numberOfPieces={300}
+          recycle={false}
+          colors={['#000', '#fff', '#fcba03']}
         />
-      </div>
-      <div>
-        <img
-          src={
-            'https://pixabay.com/get/gb61596a4e35a333856b923b9fcf954fe6808aaa05a8a3bb37afd2594f4917b789883faf09ae325c6faeb24bc7386392df7a3f42209eef73192a18f7cf00abf7f_1280.jpg'
-          }
-          alt={'old phone'}
-        />
-      </div>
-      <div>
-        <img
-          src={
-            'https://pixabay.com/get/g8eb094b9675b189f599fcbf8e586c30a9353781b4896f7e52f49318c74607fdf2d5d5d725336a8fac126b7f89ac1ec0ca4eb1045705cc54e11eaae2d738820d6_1280.jpg'
-          }
-          alt={'old phone'}
-        />
-      </div>
-    </Slider>
+      )}
+
+      <Slider {...settings}>
+        <div className={styles.container}>
+          <img src={phone1} alt={'black old phone'} />
+        </div>
+        <div>
+          <img src={phone2} alt={'old phone'} />
+        </div>
+        <div>
+          <img src={phone3} alt={'old phone'} />
+        </div>
+      </Slider>
+    </>
   );
 };
 

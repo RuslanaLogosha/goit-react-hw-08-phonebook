@@ -8,7 +8,6 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     top: 'auto',
     bottom: 0,
-    marginTop: '30px',
   },
 }));
 
@@ -19,7 +18,7 @@ export default function BottomAppBar() {
     <React.Fragment>
       <CssBaseline />
 
-      <AppBar position="sticky" color="primary" className={classes.appBar}>
+      <AppBar color="primary" className={classes.appBar}>
         <Toolbar></Toolbar>
       </AppBar>
     </React.Fragment>

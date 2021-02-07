@@ -6,10 +6,24 @@ import Form from '../components/FormComponents/Form';
 import Input from '../components/FormComponents/Input';
 import PrimaryButton from '../components/FormComponents/PrimaryButton';
 import PageHeader from '../components/HeaderMUI/PageHeaderMUI';
+import { yupResolver } from '@hookform/resolvers';
+import * as yup from 'yup';
+
+const schema = yup.object().shape({
+  name: yup.string().required('First name is a required field'),
+  email: yup
+    .string()
+    .email('Email should have correct format')
+    .required('Email is a required field'),
+  password: yup.string().required('Password is a required field'),
+});
 
 export default function RegisterView() {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(schema),
+  });
 
   const handleFormSubmit = data => {
     dispatch(authOperations.register(data));
@@ -20,18 +34,36 @@ export default function RegisterView() {
       <PageHeader title="Страница регистрации" />
 
       <Form onSubmit={handleSubmit(handleFormSubmit)} autoComplete="off">
-        <Input type="text" name="name" label="Name" ref={register} />
+        <Input
+          type="text"
+          name="name"
+          label="Name"
+          ref={register}
+          error={!!errors.name}
+          helperText={errors?.name?.message}
+        />
 
-        <Input type="email" name="email" label="Email" ref={register} />
+        <Input
+          type="email"
+          name="email"
+          label="Email"
+          ref={register}
+          error={!!errors.email}
+          helperText={errors?.email?.message}
+        />
 
         <Input
           type="password"
           name="password"
           label="Password"
           ref={register}
+          error={!!errors.password}
+          helperText={errors?.password?.message}
         />
 
-        <PrimaryButton type="submit">Зарегистрироваться</PrimaryButton>
+        <PrimaryButton type="submit" color="primary">
+          Зарегистрироваться
+        </PrimaryButton>
       </Form>
     </FormContainer>
   );

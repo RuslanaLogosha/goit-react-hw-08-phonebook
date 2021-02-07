@@ -50,7 +50,9 @@ export default function LoginView() {
           label="Password"
           onChange={handleChange}
         />
-        <PrimaryButton type="submit">Войти</PrimaryButton>
+        <PrimaryButton type="submit" color="primary">
+          Войти
+        </PrimaryButton>
       </Form>
     </FormContainer>
   );

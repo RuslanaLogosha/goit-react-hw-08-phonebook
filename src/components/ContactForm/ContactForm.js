@@ -19,8 +19,8 @@ const schema = yup.object().shape({
     .required('First name is a required field'),
   number: yup
     .string()
-    .min(19)
-    //   .matches(/^([0-9]*)$/, 'Phone number should contain only numbers')
+    // .min(19)
+    // .matches(/^([0-9]*)$/, 'Phone number should contain only numbers')
     .required('Phone number is a required field'),
 });
 
@@ -44,7 +44,6 @@ export default function ContactForm() {
       alert(`${data.name} is already in contacts.`);
       return;
     }
-
     dispatch(contactsOperations.addContact(data.name, data.number));
     e.target.reset();
     setNumber('');
@@ -62,21 +61,26 @@ export default function ContactForm() {
           ref={register}
         />
         <NumberFormat
-          type="text"
+          type="tel"
           name="number"
-          label="Phone number"
+          label="Phone number 0XX XXX XX XX"
           inputMode="numeric"
           autoComplete="tel"
           error={!!errors.number}
           helperText={errors?.number?.message}
           inputRef={register}
           customInput={Input}
-          format="+38 (#) ### ## ####"
+          format="+38 (###) ### ## ##"
           mask="_"
           value={number}
           onChange={handleChange}
         />
-        <PrimaryButton startIcon={<PersonAddIcon />} type="submit" reset>
+        <PrimaryButton
+          startIcon={<PersonAddIcon />}
+          type="submit"
+          color="primary"
+          reset
+        >
           Add contact
         </PrimaryButton>
       </Form>

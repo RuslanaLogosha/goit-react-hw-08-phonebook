@@ -7,8 +7,10 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { authOperations, authSelectors } from './redux/auth';
 import HeaderMUI from './components/HeaderMUI/HeaderMUI';
-import BottomAppBar from './components/BottomAppBar';
+import BottomAppBar from './components/Footer/BottomAppBar';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { css } from '@emotion/core';
+import ClockLoader from 'react-spinners/ClockLoader';
 
 const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView'));
@@ -26,6 +28,12 @@ const theme = createMuiTheme({
   },
 });
 
+const override = css`
+  display: block;
+  margin: 50px auto;
+  border-color: red;
+`;
+
 export default function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
@@ -38,22 +46,27 @@ export default function App() {
   return (
     <Container>
       {isFetchingCurrentUser ? (
-        <h1>Показываем React Skeleton</h1>
+        <ClockLoader css={override} color={'#e8834d'} size={150} />
       ) : (
         <ThemeProvider theme={theme}>
           <HeaderMUI />
           <Switch>
-            <Suspense fallback={<p>Загружаем...</p>}>
+            <Suspense
+              fallback={
+                <ClockLoader css={override} color={'#e8834d'} size={150} />
+              }
+            >
               <PublicRoute exact path="/" component={HomeView} />
               <PublicRoute
                 path="/register"
                 component={RegisterView}
+                redirectTo="/"
                 restricted
               />
               <PublicRoute
                 path="/login"
                 component={LoginView}
-                redirectTo="/contacts"
+                redirectTo="/"
                 restricted
               />
               <PrivateRoute
