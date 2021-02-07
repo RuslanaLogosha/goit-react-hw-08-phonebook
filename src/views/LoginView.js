@@ -5,7 +5,6 @@ import FormContainer from '../components/FormComponents/FormContainer';
 import Form from '../components/FormComponents/Form';
 import Input from '../components/FormComponents/Input';
 import PrimaryButton from '../components/FormComponents/PrimaryButton';
-import PageHeader from '../components/HeaderMUI/PageHeaderMUI';
 
 export default function LoginView() {
   const dispatch = useDispatch();
@@ -32,8 +31,6 @@ export default function LoginView() {
 
   return (
     <FormContainer>
-      <PageHeader title="Страница логина" />
-
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Input
           type="email"

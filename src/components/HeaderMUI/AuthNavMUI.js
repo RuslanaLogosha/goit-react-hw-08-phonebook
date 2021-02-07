@@ -11,6 +11,10 @@ const styles = {
     fontSize: 18,
     color: '#faa346',
   },
+  activeLink: {
+    color: '#ffffff',
+    fontSize: '25px',
+  },
 };
 
 export default function AuthNavMUI() {

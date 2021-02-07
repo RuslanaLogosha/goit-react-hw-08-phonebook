@@ -10,7 +10,8 @@ const styles = {
     color: '#2A363B',
   },
   activeLink: {
-    color: '#2A363B',
+    color: '#ffffff',
+    fontSize: '25px',
   },
 };
 

@@ -5,7 +5,6 @@ import FormContainer from '../components/FormComponents/FormContainer';
 import Form from '../components/FormComponents/Form';
 import Input from '../components/FormComponents/Input';
 import PrimaryButton from '../components/FormComponents/PrimaryButton';
-import PageHeader from '../components/HeaderMUI/PageHeaderMUI';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
 
@@ -31,8 +30,6 @@ export default function RegisterView() {
 
   return (
     <FormContainer>
-      <PageHeader title="Страница регистрации" />
-
       <Form onSubmit={handleSubmit(handleFormSubmit)} autoComplete="off">
         <Input
           type="text"
